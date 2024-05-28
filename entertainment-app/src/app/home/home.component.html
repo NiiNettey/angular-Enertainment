@@ -1,48 +1,42 @@
-<div class="home-container">
-  <nav class="sidebar">
-    <img src="assets/icon.png" alt="Logo" class="logo" />
-    <ul class="nav-list">
-      <li><a href="#"><i class="fas fa-home"></i></a></li>
-      <li><a href="#"><i class="fas fa-film"></i></a></li>
-      <li><a href="#"><i class="fas fa-tv"></i></a></li>
-      <li><a href="#"><i class="fas fa-bookmark"></i></a></li>
-    </ul>
-    <div class="profile">
-      <img src="assets/profile.png" alt="Profile" />
+<div class="container">
+  <div class="sidebar">
+    <div class="logo">
+      <img src="path-to-logo" alt="Logo">
     </div>
-  </nav>
-
+    <div class="nav">
+      <a routerLink="/home" routerLinkActive="active"><i class="icon-home"></i></a>
+      <a routerLink="/movies" routerLinkActive="active"><i class="icon-movies"></i></a>
+      <a routerLink="/series" routerLinkActive="active"><i class="icon-series"></i></a>
+      <a routerLink="/favorites" routerLinkActive="active"><i class="icon-favorites"></i></a>
+    </div>
+  </div>
   <div class="main-content">
-    <header class="header">
-      <input type="text" placeholder="Search for movies or TV series" />
-    </header>
-
-    <section class="trending">
+    <div class="search-bar">
+      <input type="text" placeholder="Search for movies or TV series">
+    </div>
+    <div class="trending">
       <h2>Trending</h2>
-      <div class="trending-items">
-        <div class="trending-item">
-          <img src="assets/trending1.png" alt="Beyond Earth" />
+      <div class="carousel">
+        <div *ngFor="let item of trending" class="carousel-item">
+          <img [src]="item.image" alt="{{ item.title }}">
           <div class="item-info">
-            <p>2019 &#8226; Movie &#8226; PG</p>
-            <h3>Beyond Earth</h3>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.year }} - {{ item.genre }}</p>
           </div>
         </div>
-        <!-- Repeat for other trending items -->
       </div>
-    </section>
-
-    <section class="recommended">
+    </div>
+    <div class="recommended">
       <h2>Recommended for you</h2>
-      <div class="recommended-items">
-        <div class="recommended-item">
-          <img src="assets/recommended1.png" alt="The Great Lands" />
+      <div class="grid">
+        <div *ngFor="let item of recommended" class="grid-item">
+          <img [src]="item.image" alt="{{ item.title }}">
           <div class="item-info">
-            <p>2019 &#8226; Movie &#8226; PG</p>
-            <h3>The Great Lands</h3>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.year }} - {{ item.genre }}</p>
           </div>
         </div>
-        <!-- Repeat for other recommended items -->
       </div>
-    </section>
+    </div>
   </div>
 </div>

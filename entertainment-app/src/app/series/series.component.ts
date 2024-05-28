@@ -3,22 +3,20 @@ import { CommonModule } from '@angular/common';
 import { DataService } from '../data.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-series',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './series.component.html',
+  styleUrls: ['./series.component.css']
 })
-export class HomeComponent implements OnInit {
-  trending: any[] = [];
-  recommended: any[] = [];
+export class SeriesComponent implements OnInit {
+  Series: any[] = [];
 
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => {
-      this.trending = data.trending.filter(item => item.type === 'trending');
-      this.recommended = data.recommended;
-    });
+      this.Series = data.filter(item => item
+      }
+    }
   }
-}
