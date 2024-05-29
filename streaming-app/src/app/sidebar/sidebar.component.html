@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <div class="logo">Logo</div>
+  <nav>
+    <ul>
+      <li routerLinkActive="active" [routerLink]="['/']">Home</li>
+      <li routerLinkActive="active" [routerLink]="['/movies']">Movies</li>
+      <li routerLinkActive="active" [routerLink]="['/series']">Series</li>
+      <li routerLinkActive="active" [routerLink]="['/favorites']">Favorites</li>
+    </ul>
+  </nav>
+  <div class="profile-button" (click)="logout()">Profile</div>
+</div>

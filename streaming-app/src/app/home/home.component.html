@@ -1,0 +1,25 @@
+<div class="search-bar">
+  <input [(ngModel)]="searchQuery" (input)="search()" placeholder="Search for movies or TV series">
+</div>
+<div class="content">
+  <div class="section">
+    <h2>Trending</h2>
+    <div class="items">
+      <div *ngFor="let item of trendingItems" class="item">
+        <img [src]="item.thumbnail.regular.small" [alt]="item.title">
+        <p>{{ item.title }} ({{ item.year }})</p>
+        <p>Rating: {{ item.rating }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Recommended for You</h2>
+    <div class="items">
+      <div *ngFor="let item of recommendedItems" class="item">
+        <img [src]="item.thumbnail.regular.small" [alt]="item.title">
+        <p>{{ item.title }} ({{ item.year }})</p>
+        <p>Rating: {{ item.rating }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="search-bar">
+  <input [(ngModel)]="searchQuery" (input)="search()" placeholder="Search for movies">
+</div>
+<div class="content">
+  <div class="items">
+    <div *ngFor="let item of movies" class="item">
+      <img [src]="item.thumbnail.regular.small" [alt]="item.title">
+      <p>{{ item.title }} ({{ item.year }})</p>
+      <p>Rating: {{ item.rating }}</p>
+    </div>
+  </div>
+</div>
