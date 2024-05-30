@@ -1,12 +1,1 @@
-<div class="search-bar">
-  <input [(ngModel)]="searchQuery" (input)="search()" placeholder="Search for TV series">
-</div>
-<div class="content">
-  <div class="items">
-    <div *ngFor="let item of series" class="item">
-      <img [src]="item.thumbnail.regular.small" [alt]="item.title">
-      <p>{{ item.title }} ({{ item.year }})</p>
-      <p>Rating: {{ item.rating }}</p>
-    </div>
-  </div>
-</div>
+<p>series works!</p>
