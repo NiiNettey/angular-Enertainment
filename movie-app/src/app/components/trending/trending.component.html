@@ -1,1 +1,7 @@
-<p>trending works!</p>
+<section>
+  <h2>Trending</h2>
+  <div *ngFor="let movie of trending">
+    <img [src]="movie.thumbnail" [alt]="movie.title">
+    <p>{{ movie.title }} ({{ movie.year }}) - {{ movie.rating }}</p>
+  </div>
+</section>

@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+// src/app/components/trending/trending.component.ts
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-trending',
-  standalone: true,
-  imports: [],
   templateUrl: './trending.component.html',
-  styleUrl: './trending.component.css'
+  styleUrls: ['./trending.component.css']
 })
-export class TrendingComponent {
+export class TrendingComponent implements OnInit {
+  trending: Movie[] = [];
 
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getData().subscribe(data => {
+      this.trending = data.trending;
+    });
+  }
 }

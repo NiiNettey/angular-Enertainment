@@ -1,0 +1,13 @@
+/* src/app/app.component.css */
+.container {
+    display: flex;
+  }
+
+  aside {
+    flex: 0 0 60px;
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 1em;
+  }
