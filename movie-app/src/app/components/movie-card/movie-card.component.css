@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+#trend-mother:hover #play-btn {
+  visibility: visible;
+}
+
+#bookmark-comp:hover #bookmark {
+  stroke: #10141e;
+}
+
+#bookmark-comp:hover #trend-mother {
+  pointer-events: none;
+}
