@@ -6,7 +6,6 @@ import { HomeComponent } from './screens/home/home.component';
 import { MoviesComponent } from './screens/movies/movies.component';
 import { SeriesComponent } from './screens/series/series.component';
 import { BookmarksComponent } from './screens/bookmarks/bookmarks.component';
-
 export const routes: Routes = [
   {
     path: '',
