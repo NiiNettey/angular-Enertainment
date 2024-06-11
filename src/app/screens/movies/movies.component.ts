@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-import {
-  FormControl,
-  FormControlDirective,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Movie } from '../../Interface/movie';
 import { DataService } from '../../services/data.service';
 import { MovieCardComponent } from '../../components/movie-card/movie-card.component';
@@ -23,7 +18,6 @@ import { MovieCardComponent } from '../../components/movie-card/movie-card.compo
   styleUrl: './movies.component.css',
 })
 export class MoviesComponent implements OnInit {
-  // searchData: FormControl = new FormControl();
   searchData: string = '';
 
   movies: Movie[] = [];
@@ -35,7 +29,6 @@ export class MoviesComponent implements OnInit {
     this.dataService.getMovies().subscribe((movie) => {
       this.movies = movie;
     });
-
   }
 
   search(value: Event) {
@@ -45,7 +38,7 @@ export class MoviesComponent implements OnInit {
 
 
   filterMovies(): Movie[] {
-    
+
     if(!this.searchData){
        return this.movies;
     }
@@ -54,3 +47,27 @@ export class MoviesComponent implements OnInit {
   )
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FormControl, FormControlDirective,
