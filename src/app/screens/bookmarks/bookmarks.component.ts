@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { Movie } from '../../Interface/movie';
 import { CommonModule } from '@angular/common';
-import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MovieCardComponent } from '../../components/movie-card/movie-card.component';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
@@ -11,12 +10,12 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 @Component({
   selector: 'app-bookmarks',
   standalone: true,
-  imports: [CommonModule, NgFor, NgIf, FormsModule, MovieCardComponent, NavBarComponent],
+  imports: [CommonModule, FormsModule, MovieCardComponent, NavBarComponent],
   templateUrl: './bookmarks.component.html',
   styleUrls: ['./bookmarks.component.css']
 })
 export class BookmarksComponent implements OnInit {
-  bookmarkedMovies$!: Observable<Movie[]>;     // Use definite assignment assertion
+  bookmarkedMovies$: Observable<Movie[]> = of([]);
   searchData: string = '';
 
   constructor(private dataService: DataService) {}
@@ -27,6 +26,15 @@ export class BookmarksComponent implements OnInit {
 
   search(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
-    //SL
+    this.searchData = query;
+  }
+
+  filterMovies(movies: Movie[]): Movie[] {
+    if (!this.searchData) {
+      return movies;
+    }
+    return movies.filter((movie) =>
+      movie.title.toLowerCase().includes(this.searchData.toLowerCase().trim())
+    );
   }
 }
