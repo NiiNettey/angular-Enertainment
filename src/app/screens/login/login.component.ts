@@ -23,7 +23,6 @@ export class LoginComponent {
       this.errorMessage = "Email and password can't be empty";
       return;
     }
-    // Basic authentication logic (replace with real authentication service)
     if (this.email === 'test@example.com' && this.password === 'password') {
       this.router.navigate(['/home']);
     } else {

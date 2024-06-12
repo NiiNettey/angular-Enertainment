@@ -28,7 +28,6 @@ export class SignUpComponent {
       this.errorMessage = "Passwords don't match";
       return;
     }
-    // Basic signup logic (replace with real signup service)
     if (this.email && this.password === this.repeatPassword) {
       this.router.navigate(['/home']);
     } else {
