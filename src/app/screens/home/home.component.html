@@ -11,7 +11,7 @@
       />
       <input
         type="text"
-        (input)="search()"
+        (input)="search($event)"
         [ngModel]="searchData"
         name="searchData"
         class="w-full text-pureWhite bg-transparent text-[16px] md:text-lg outline-none border-b border-b-transparent focus:border-b focus:border-greyishBlue pb-1 md:pb-4"
