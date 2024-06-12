@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   search(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
     this.searchData = query;
+    localStorage.setItem('searchData', this.searchData);
   }
 
   filterMovies(movies: Movie[]): Movie[] {

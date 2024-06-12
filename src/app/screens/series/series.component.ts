@@ -13,7 +13,7 @@ import { MovieCardComponent } from '../../components/movie-card/movie-card.compo
   styleUrl: './series.component.css',
 })
 export class SeriesComponent implements OnInit {
-  searchData: string = 'hello';
+  searchData: string = '';
   movie: Movie[] = [];
 
   constructor(private movies: DataService) {}
@@ -27,7 +27,9 @@ export class SeriesComponent implements OnInit {
   search(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
     this.searchData = query;
+    localStorage.setItem('searchData', this.searchData);
   }
+
 
   filterMovies(movies: Movie[]): Movie[] {
     if (!this.searchData) {

@@ -34,6 +34,7 @@ export class MoviesComponent implements OnInit {
   search(value: Event) {
     const searchValue: any = (value.target as HTMLInputElement).value;
     this.searchData = searchValue;
+    localStorage.setItem('searchData', this.searchData);
   }
 
 
