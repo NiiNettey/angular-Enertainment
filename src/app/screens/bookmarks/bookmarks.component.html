@@ -15,7 +15,7 @@
 
     <div class="font-outfit px-5 xl:pl-0 mb-5">
       <div class="text-[20px] md:text-xl font-light pt-1 pb-3">Bookmarked Movies</div>
-      <div class="flex flex-row flex-wrap justify-between md:gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
         <ng-container *ngIf="bookmarkedMovies$ | async as bookmarkedMovies">
           <ng-container *ngFor="let movie of filterMovies(bookmarkedMovies)">
             <app-movie-card [movies]="movie"></app-movie-card>
