@@ -19,7 +19,6 @@ import { MovieCardComponent } from '../../components/movie-card/movie-card.compo
 })
 export class MoviesComponent implements OnInit {
   searchData: string = '';
-
   movies: Movie[] = [];
   filteredMovie: Movie[] = [];
 

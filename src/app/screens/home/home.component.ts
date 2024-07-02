@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TrendingCardComponent } from '../../components/trending-card/trending-card.component';
 import { Movie } from '../../Interface/movie';
 import { DataService } from '../../services/data.service';
@@ -9,14 +9,9 @@ import { MovieCardComponent } from '../../components/movie-card/movie-card.compo
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    NavBarComponent,
-    FormsModule,
-    TrendingCardComponent,
-    MovieCardComponent,
-  ],
+  imports: [ NavBarComponent, FormsModule, TrendingCardComponent, MovieCardComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
   searchData: string = '';

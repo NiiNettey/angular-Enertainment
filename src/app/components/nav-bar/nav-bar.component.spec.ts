@@ -11,7 +11,7 @@ describe('NavBarComponent', () => {
       imports: [NavBarComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(NavBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
