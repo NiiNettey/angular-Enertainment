@@ -3,21 +3,23 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgClass } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [RouterOutlet,CommonModule, FormsModule ,RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, CommonModule, FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css',
+  styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent {
+  username: string = '';
   email: string = '';
   password: string = '';
   repeatPassword: string = '';
   errorMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   validateSignUp() {
     if (!this.email || !this.password || !this.repeatPassword) {
@@ -28,10 +30,15 @@ export class SignUpComponent {
       this.errorMessage = "Passwords don't match";
       return;
     }
-    if (this.email && this.password === this.repeatPassword) {
-      this.router.navigate(['/home']);
-    } else {
-      this.errorMessage = 'Sign-up failed';
-    }
+
+    this.authService.register(this.email, this.email, this.password).subscribe({
+      next: () => {
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        this.errorMessage = 'Sign-up failed';
+        console.error(err);
+      },
+    });
   }
 }
